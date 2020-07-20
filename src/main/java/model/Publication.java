@@ -38,6 +38,8 @@ public abstract class Publication {
         this.year = Year.of(year);
     }
 
+    public Publication(){}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

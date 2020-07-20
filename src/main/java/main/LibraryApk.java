@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Book;
+import model.Publication;
 
 public class LibraryApk extends Application {
     public static void main(String[] args) {
@@ -18,6 +20,5 @@ public class LibraryApk extends Application {
         stage.setScene(scene);
         stage.setTitle("Library Apk");
         stage.show();
-
     }
 }

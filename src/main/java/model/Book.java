@@ -11,6 +11,7 @@ public class Book extends Publication{
         this.pages = pages;
         this.language = language;
     }
+
     public Book(){}
 
     public int getPages() {

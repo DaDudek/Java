@@ -7,6 +7,20 @@ public abstract class Publication {
     private String title;
     private String author;
     private Year year;
+    private boolean borrowed;
+    private static int id = 0;
+
+    public boolean isBorrowed() {
+        return borrowed;
+    }
+
+    public void setBorrowed(boolean borrowed) {
+        this.borrowed = borrowed;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
@@ -33,12 +47,15 @@ public abstract class Publication {
     }
 
     public Publication(String title, String author, int year) {
+        id++;
         this.title = title;
         this.author = author;
         this.year = Year.of(year);
     }
 
-    public Publication(){}
+    public Publication(){
+        id++;
+    }
 
     @Override
     public boolean equals(Object o) {

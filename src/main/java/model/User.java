@@ -1,6 +1,7 @@
 package model;
 
 import exceptions.PublicationBorrowedException;
+import exceptions.PublicationNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,6 @@ public class User {
             returnedPublications.add(publication);
             borrowedPublication.remove(publication);
         }
-        throw new PublicationBorrowedException("You are not allowed to return publication you have not borrowed");
+        throw new PublicationNotFoundException("You are not allowed to return publication you have not borrowed");
     }
 }

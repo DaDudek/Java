@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 import model.Book;
 import model.Publication;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LibraryApk extends Application {
     public static void main(String[] args) {
         launch(args);

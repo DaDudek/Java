@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.PublicationNotFoundException;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,9 +22,21 @@ public class Library implements Serializable {
     public Library() {
     }
 
-    public void addPublication(Publication publication){
-        publicationsMap.put(publication.getId(), publication);
+    public void addPublication(Publication publication) {
+        if (publication == null) {
+            throw new NullPointerException("can't add null position");
+        } else {
+            publicationsMap.put(publication.getId(), publication);
+        }
     }
+
+    public void removePublication(Publication publication){
+        if (publication == null){
+            throw new NullPointerException("can't remove null position");
+        }
+        publicationsMap.remove(publication.getId());
+    }
+
 
 
 

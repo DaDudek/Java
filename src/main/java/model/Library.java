@@ -18,5 +18,11 @@ public class Library implements Serializable {
     public Library() {
     }
 
+    public void addPublication(Publication publication){
+        publicationMap.put(publication.getId(), publication);
+    }
+
+    
+
 
 }

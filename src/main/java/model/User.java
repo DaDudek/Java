@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.PublicationBorrowedException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,4 +27,23 @@ public class User {
     }
 
     public User(){}
+
+    public void borrowPublication(Publication publication){
+        if (publication.isBorrowed()){
+            throw new PublicationBorrowedException("this publication is already borrowed");
+        }
+        else {
+            borrowedPublication.add(publication);
+            publication.setBorrowed(true);
+        }
+    }
+
+    public void returnPublication(Publication publication){
+        if (borrowedPublication.contains(publication)){
+            publication.setBorrowed(false);
+            returnedPublications.add(publication);
+            borrowedPublication.remove(publication);
+        }
+        throw new PublicationBorrowedException("You are not allowed to return publication you have not borrowed");
+    }
 }

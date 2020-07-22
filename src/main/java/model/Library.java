@@ -9,7 +9,7 @@ import java.util.Map;
 public class Library implements Serializable {
     public final static String fileName = "Library.obj";
     private Map<Integer, Publication> publicationsMap = new HashMap<>();
-    private Map<String, Publication> usersMap = new HashMap<>();
+    private Map<String, User> usersMap = new HashMap<>();
 
     public Map<Integer, Publication> getPublicationsMap() {
         return publicationsMap;
@@ -36,6 +36,18 @@ public class Library implements Serializable {
         }
         publicationsMap.remove(publication.getId());
     }
+
+    public void addUser(String email){
+        usersMap.put(email,new User(email));
+    }
+
+    public Publication borrowPublication(String email, Publication publication){
+        usersMap.get(email).borrowPublication(publication);
+        return publication;
+    }
+
+
+
 
 
 

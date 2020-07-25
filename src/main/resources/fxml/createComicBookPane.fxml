@@ -8,42 +8,42 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label layoutX="101.0" layoutY="40.0" prefHeight="40.0" prefWidth="160.0" text="Title">
+        <Label fx:id="titleLabel" layoutX="101.0" layoutY="40.0" prefHeight="40.0" prefWidth="160.0" text="Title">
             <font>
                 <Font size="25.0" />
             </font>
         </Label>
-        <TextField layoutX="486.0" layoutY="40.0" prefHeight="40.0" prefWidth="200.0" />
-        <TextField layoutX="486.0" layoutY="110.0" prefHeight="40.0" prefWidth="200.0" />
-        <TextField layoutX="486.0" layoutY="171.0" prefHeight="40.0" prefWidth="200.0" />
-        <TextField layoutX="486.0" layoutY="230.0" prefHeight="40.0" prefWidth="200.0" />
-        <TextField layoutX="486.0" layoutY="290.0" prefHeight="40.0" prefWidth="200.0" />
-        <Label layoutX="101.0" layoutY="110.0" prefHeight="40.0" prefWidth="160.0" text="Author">
+        <TextField fx:id="titleTextField" layoutX="486.0" layoutY="40.0" prefHeight="40.0" prefWidth="200.0" />
+        <TextField fx:id="authorTextField" layoutX="486.0" layoutY="110.0" prefHeight="40.0" prefWidth="200.0" />
+        <TextField fx:id="yearTextField" layoutX="486.0" layoutY="171.0" prefHeight="40.0" prefWidth="200.0" />
+        <TextField fx:id="publishingHouseTextField" layoutX="486.0" layoutY="230.0" prefHeight="40.0" prefWidth="200.0" />
+        <TextField fx:id="howManyStoriesTextField" layoutX="486.0" layoutY="290.0" prefHeight="40.0" prefWidth="200.0" />
+        <Label fx:id="authorLabel" layoutX="101.0" layoutY="110.0" prefHeight="40.0" prefWidth="160.0" text="Author">
             <font>
                 <Font size="25.0" />
             </font>
         </Label>
-        <Label layoutX="101.0" layoutY="230.0" prefHeight="40.0" prefWidth="200.0" text="Publishing house">
+        <Label fx:id="publishingHouseLabel" layoutX="101.0" layoutY="230.0" prefHeight="40.0" prefWidth="200.0" text="Publishing house">
             <font>
                 <Font size="25.0" />
             </font>
         </Label>
-        <Label layoutX="101.0" layoutY="290.0" prefHeight="40.0" prefWidth="212.0" text="How many stories">
+        <Label fx:id="howManyStoriesLabel" layoutX="101.0" layoutY="290.0" prefHeight="40.0" prefWidth="212.0" text="How many stories">
             <font>
                 <Font size="25.0" />
             </font>
         </Label>
-        <Label layoutX="101.0" layoutY="170.0" prefHeight="40.0" prefWidth="160.0" text="Year">
+        <Label fx:id="yearLabel" layoutX="101.0" layoutY="170.0" prefHeight="40.0" prefWidth="160.0" text="Year">
             <font>
                 <Font size="25.0" />
             </font>
         </Label>
-        <Button layoutX="128.0" layoutY="379.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" text="come back">
+        <Button fx:id="goBackButton" layoutX="128.0" layoutY="379.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" text="go back">
             <font>
                 <Font size="25.0" />
             </font>
         </Button>
-        <Button layoutX="469.0" layoutY="379.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" text="save changes">
+        <Button fx:id="addComicBookButton" layoutX="469.0" layoutY="379.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="212.0" text="add comic book">
             <font>
                 <Font size="25.0" />
             </font>

@@ -7,12 +7,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Book;
+import model.Library;
 import model.Publication;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class LibraryApk extends Application {
+    public static final String apkName= "Library apk by Dawid";
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -22,7 +25,7 @@ public class LibraryApk extends Application {
         AnchorPane mainPane = FXMLLoader.load(getClass().getResource("/fxml/loginPane.fxml"));
         Scene scene = new Scene(mainPane);
         stage.setScene(scene);
-        stage.setTitle("Library Apk");
+        stage.setTitle(apkName);
         stage.show();
     }
 }

@@ -14,13 +14,6 @@ public class Library implements Serializable {
     private List<Publication> publicationsList = new ArrayList<>();
     private Map<String, User> usersMap = new HashMap<>();
 
-    public List<Publication> getPublicationsMap() {
-        return publicationsList;
-    }
-
-    public void setPublicationMap(List<Publication> publicationList) {
-        this.publicationsList = publicationList;
-    }
 
     private Library() {
     }
@@ -30,6 +23,12 @@ public class Library implements Serializable {
             single_instance = new Library();
         }
         return single_instance;
+    }
+
+    //publications part
+
+    public void setPublicationMap(List<Publication> publicationList) {
+        this.publicationsList = publicationList;
     }
 
     public void addPublication(Publication publication) {
@@ -47,22 +46,28 @@ public class Library implements Serializable {
         publicationsList.remove(publication);
     }
 
-    public User getUser(String email){
-        return usersMap.get(email);
+    //users part
+
+    public Map<String, User> getUsersMap() {
+        return usersMap;
     }
 
-    public void addUser(String email) {
-        if (!checkUser(email)) {
-            usersMap.put(email, new User(email));
+    public User getUser(String userName){
+        return usersMap.get(userName);
+    }
+
+    public void addUser(String userName) {
+        if (!checkUser(userName)) {
+            usersMap.put(userName, new User(userName));
         }
     }
 
-    private boolean checkUser(String email){
-        return usersMap.containsKey(email);
+    private boolean checkUser(String userName){
+        return usersMap.containsKey(userName);
     }
 
-    public Publication borrowPublication(String email, Publication publication){
-        usersMap.get(email).borrowPublication(publication);
+    public Publication borrowPublication(String userName, Publication publication){
+        usersMap.get(userName).borrowPublication(publication);
         return publication;
     }
 

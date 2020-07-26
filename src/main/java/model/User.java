@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class User {
-    private String emailAddress;
+    private String userName;
     private List<Publication> borrowedPublication = new ArrayList<>();
     private List<Publication> returnedPublications = new ArrayList<>();
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getUserName() {
+        return userName;
     }
 
     public List<Publication> getBorrowedPublication() {
@@ -24,8 +24,8 @@ public class User {
         return returnedPublications;
     }
 
-    public User(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public User(String userName) {
+        this.userName = userName;
     }
 
     public User(){}
@@ -54,20 +54,20 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(emailAddress, user.emailAddress) &&
+        return Objects.equals(userName, user.userName) &&
                 Objects.equals(borrowedPublication, user.borrowedPublication) &&
                 Objects.equals(returnedPublications, user.returnedPublications);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(emailAddress, borrowedPublication, returnedPublications);
+        return Objects.hash(userName, borrowedPublication, returnedPublications);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "emailAddress='" + emailAddress + '\'' +
+                "userName='" + userName + '\'' +
                 '}';
     }
 }

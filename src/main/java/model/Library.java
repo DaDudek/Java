@@ -3,20 +3,22 @@ package model;
 import exceptions.PublicationNotFoundException;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Library implements Serializable {
     public final static String fileName = "Library.obj";
-    private Map<Integer, Publication> publicationsMap = new HashMap<>();
+    private List<Publication> publicationsList = new ArrayList<>();
     private Map<String, User> usersMap = new HashMap<>();
 
-    public Map<Integer, Publication> getPublicationsMap() {
-        return publicationsMap;
+    public List<Publication> getPublicationsMap() {
+        return publicationsList;
     }
 
-    public void setPublicationMap(Map<Integer, Publication> publicationMap) {
-        this.publicationsMap = publicationMap;
+    public void setPublicationMap(List<Publication> publicationList) {
+        this.publicationsList = publicationList;
     }
 
     public Library() {
@@ -26,7 +28,7 @@ public class Library implements Serializable {
         if (publication == null) {
             throw new NullPointerException("can't add null position");
         } else {
-            publicationsMap.put(publication.getId(), publication);
+            publicationsList.add(publication);
         }
     }
 
@@ -34,7 +36,7 @@ public class Library implements Serializable {
         if (publication == null){
             throw new NullPointerException("can't remove null position");
         }
-        publicationsMap.remove(publication.getId());
+        publicationsList.remove(publication);
     }
 
     public void addUser(String email){

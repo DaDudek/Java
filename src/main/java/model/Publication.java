@@ -9,8 +9,6 @@ public abstract class Publication implements Serializable {
     private String author;
     private Year year;
     private boolean borrowed;
-    private int id;
-    private static int idCounter = 0;
 
     public boolean isBorrowed() {
         return borrowed;
@@ -18,10 +16,6 @@ public abstract class Publication implements Serializable {
 
     public void setBorrowed(boolean borrowed) {
         this.borrowed = borrowed;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getTitle() {
@@ -49,16 +43,12 @@ public abstract class Publication implements Serializable {
     }
 
     public Publication(String title, String author, int year) {
-        idCounter++;
-        id = idCounter;
         this.title = title;
         this.author = author;
         this.year = Year.of(year);
     }
 
-    public Publication(){
-        id++;
-    }
+    public Publication(){}
 
     @Override
     public boolean equals(Object o) {

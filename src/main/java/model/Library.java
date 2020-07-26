@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class Library implements Serializable {
     public final static String fileName = "Library.obj";
+    private static Library single_instance = null;
     private List<Publication> publicationsList = new ArrayList<>();
     private Map<String, User> usersMap = new HashMap<>();
 
@@ -21,7 +22,14 @@ public class Library implements Serializable {
         this.publicationsList = publicationList;
     }
 
-    public Library() {
+    private Library() {
+    }
+
+    public static Library getInstance(){
+        if (single_instance == null){
+            single_instance = new Library();
+        }
+        return single_instance;
     }
 
     public void addPublication(Publication publication) {
@@ -39,8 +47,18 @@ public class Library implements Serializable {
         publicationsList.remove(publication);
     }
 
-    public void addUser(String email){
-        usersMap.put(email,new User(email));
+    public User getUser(String email){
+        return usersMap.get(email);
+    }
+
+    public void addUser(String email) {
+        if (!checkUser(email)) {
+            usersMap.put(email, new User(email));
+        }
+    }
+
+    private boolean checkUser(String email){
+        return usersMap.containsKey(email);
     }
 
     public Publication borrowPublication(String email, Publication publication){

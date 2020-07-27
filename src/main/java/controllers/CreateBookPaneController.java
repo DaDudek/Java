@@ -1,22 +1,14 @@
 package controllers;
 
 import exceptions.WrongDataException;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import logic.SceneChanger;
-import main.LibraryApk;
 import model.Book;
 import model.Library;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 
 public class CreateBookPaneController {
@@ -70,6 +62,7 @@ public class CreateBookPaneController {
                 int year = Integer.parseInt(yearTextField.getText());
                 int pages = Integer.parseInt(yearTextField.getText());
                 String language = languageTextField.getText();
+
                 if (checkData(title,author,year,pages,language)){
                     library.addPublication(new Book(title, author, year ,pages, language));
                 }
@@ -78,7 +71,7 @@ public class CreateBookPaneController {
                 }
 
             } catch (InputMismatchException | WrongDataException wrexp){
-                sceneChanger.changeScene(actionEvent, "/fxml/errorPane.fxml");
+                sceneChanger.openNewWindow("/fxml/errorPane.fxml");
             }
         });
     }
@@ -101,6 +94,7 @@ public class CreateBookPaneController {
         }
         return true;
     }
+
 
 
 

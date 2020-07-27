@@ -42,6 +42,11 @@ public abstract class Publication implements Serializable {
         this.year = year;
     }
 
+    public String getPublishingHouse(){return "no info";}
+    public String getLanguage(){return  "no info";}
+    public int getPages(){return  0;}
+    public int getHowManyStories(){return 0;}
+
     public Publication(String title, String author, int year) {
         this.title = title;
         this.author = author;

@@ -78,12 +78,13 @@ public class CreateBookPaneController {
 
             if (dataChecker.checkBookData(title,author,year,pages,language)){
                 library.addPublication(new Book(title, author, year ,pages, language));
+                sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
             }
             else {
                 throw new WrongDataException("wrong data");
             }
 
-        } catch (InputMismatchException | WrongDataException exception){
+        } catch (Exception exception){
             sceneChanger.openNewWindow(LibraryApk.errorPanePath);
         }}
 

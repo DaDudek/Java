@@ -7,6 +7,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import logic.SceneChanger;
+import main.LibraryApk;
+import model.Library;
 
 public class MainPaneController {
 
@@ -29,13 +31,16 @@ public class MainPaneController {
     private Button returnPublicationButton;
 
     @FXML
-    private CheckBox showBooksButton;
+    private CheckBox showBooksCheckBox;
 
     @FXML
-    private CheckBox showComicBookButton;
+    private CheckBox showComicBookCheckBoox;
 
     @FXML
-    private CheckBox showNotBorrowedButton;
+    private CheckBox showNotBorrowedCheckBox;
+
+    @FXML
+    private CheckBox showMyBorrowedCheckBox;
 
     @FXML
     private TableView<?> mainTableView;
@@ -67,7 +72,8 @@ public class MainPaneController {
     private SceneChanger sceneChanger = new SceneChanger();
 
     public void initialize(){
-        
+        addBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createBookPane));
+        addComicBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createComicBookPane));
     }
 
 

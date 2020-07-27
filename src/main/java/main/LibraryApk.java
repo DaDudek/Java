@@ -15,11 +15,11 @@ import java.util.Map;
 
 public class LibraryApk extends Application {
     public static final String apkName= "Library apk by Dawid";
-    public static final String mainPanePath ="/fxml/mainPane/fxml";
-    public static final String loginPanePath ="/fxml/loginPane/fxml";
-    public static final String errorPanePath ="/fxml/errorPane/fxml";
-    public static final String createBookPane ="/fxml/createBookPane/fxml";
-    public static final String createComicBookPane ="/fxml/createComicBookPane/fxml";
+    public static final String mainPanePath ="/fxml/mainPane.fxml";
+    public static final String loginPanePath ="/fxml/loginPane.fxml";
+    public static final String errorPanePath ="/fxml/errorPane.fxml";
+    public static final String createBookPane ="/fxml/createBookPane.fxml";
+    public static final String createComicBookPane ="/fxml/createComicBookPane.fxml";
 
 
 

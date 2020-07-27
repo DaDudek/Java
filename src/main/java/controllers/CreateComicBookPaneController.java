@@ -78,12 +78,13 @@ public class CreateComicBookPaneController {
 
             if (dataChecker.checkComicBookData(title,author,year,publishingHouse,howManyStories)){
                 library.addPublication(new ComicBook(title, author, year ,publishingHouse, howManyStories));
+                sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
             }
             else {
                 throw new WrongDataException("wrong data");
             }
 
-        } catch (InputMismatchException | WrongDataException exception){
+        } catch (Exception exception){
             sceneChanger.openNewWindow(LibraryApk.errorPanePath);
         }}
 

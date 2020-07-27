@@ -25,9 +25,10 @@
             <Button fx:id="deletePublicationButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="155.0" text="delete a publication" />
             <Button fx:id="borrowPublicationButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="165.0" text="borrow a publication" />
             <Button fx:id="returnPublicationButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="157.0" text="return a publication" />
-            <CheckBox fx:id="showBooksButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="155.0" text="show books" />
-            <CheckBox fx:id="showComicBookButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="153.0" text="show comic books" />
-            <CheckBox fx:id="showNotBorrowedButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="156.0" text="show only not borrowed" />
+            <CheckBox fx:id="showBooksCheckBox" mnemonicParsing="false" prefHeight="60.0" prefWidth="155.0" text="show books" />
+            <CheckBox fx:id="showComicBookCheckBoox" mnemonicParsing="false" prefHeight="60.0" prefWidth="153.0" text="show comic books" />
+            <CheckBox fx:id="showNotBorrowedCheckBox" mnemonicParsing="false" prefHeight="60.0" prefWidth="156.0" text="show only not borrowed" />
+            <CheckBox fx:id="showMyBorrowedCheckBox" mnemonicParsing="false" prefHeight="60.0" prefWidth="156.0" text="show my borrowed" />
          </children>
       </VBox>
    </right>

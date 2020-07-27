@@ -77,10 +77,11 @@ public class MainPaneController {
     private TableColumn<Publication, Boolean> borrowedTableColumn;
 
     private SceneChanger sceneChanger = new SceneChanger();
+    private Library library = Library.getInstance();
 
     public void initialize(){
         configureTableColumns();
-        createTestData();
+        fillTable();
         addBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createBookPane));
         addComicBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createComicBookPane));
     }
@@ -97,12 +98,12 @@ public class MainPaneController {
         borrowedTableColumn.setCellValueFactory(new PropertyValueFactory<>("borrowed"));
     }
 
-    private void createTestData() {
+    private void fillTable() {
         ObservableList<Publication> items = mainTableView.getItems();
-        items.add(new Book("author", "title", 1, 1, "polish"));
-        items.add(new Book("author1", "title1", 2, 2, "polish1"));
-        items.add(new ComicBook("author", "title", 3,"DC",3));
-        items.add(new ComicBook("author1", "title1", 4,"DC1",4));
+        items.addAll(library.getPublicationsList());
     }
 
+    public TableView<Publication> getMainTableView() {
+        return mainTableView;
+    }
 }

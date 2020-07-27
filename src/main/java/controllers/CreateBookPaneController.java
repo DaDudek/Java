@@ -1,6 +1,7 @@
 package controllers;
 
 import exceptions.WrongDataException;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import logic.SceneChanger;
 import main.LibraryApk;
 import model.Book;
 import model.Library;
+import model.Publication;
 
 import java.util.InputMismatchException;
 
@@ -55,6 +57,7 @@ public class CreateBookPaneController {
     private Library library = Library.getInstance();
     private SceneChanger sceneChanger = new SceneChanger();
     private DataChecker dataChecker = new DataChecker();
+    private MainPaneController mainPaneController = new MainPaneController();
 
 
 
@@ -77,7 +80,8 @@ public class CreateBookPaneController {
             String language = languageTextField.getText();
 
             if (dataChecker.checkBookData(title,author,year,pages,language)){
-                library.addPublication(new Book(title, author, year ,pages, language));
+                Publication book = new Book(title, author, year ,pages, language);
+                library.addPublication(book);
                 sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
             }
             else {
@@ -85,6 +89,7 @@ public class CreateBookPaneController {
             }
 
         } catch (Exception exception){
+            System.out.println(exception.getClass());
             sceneChanger.openNewWindow(LibraryApk.errorPanePath);
         }}
 

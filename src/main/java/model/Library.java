@@ -18,6 +18,10 @@ public class Library implements Serializable {
     private Library() {
     }
 
+    public  List<Publication> getPublicationsList() {
+        return publicationsList;
+    }
+
     public static Library getInstance(){
         if (single_instance == null){
             single_instance = new Library();

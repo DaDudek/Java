@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import logic.DataChecker;
 import logic.SceneChanger;
 import main.LibraryApk;
 import model.Book;
@@ -52,8 +53,9 @@ public class CreateBookPaneController {
     private Button addBookButton;
 
     private Library library = Library.getInstance();
-
     private SceneChanger sceneChanger = new SceneChanger();
+    private DataChecker dataChecker = new DataChecker();
+
 
 
 
@@ -65,24 +67,6 @@ public class CreateBookPaneController {
 
     }
 
-    private boolean checkData(String title, String author, int year, int pages, String language){
-        if (title.equals("")){
-            return false;
-        }
-        if (author.equals("")){
-            return false;
-        }
-        if (year < 0){
-            return false;
-        }
-        if (pages < 0) {
-            return false;
-        }
-        if (language.equals("")){
-            return false;
-        }
-        return true;
-    }
 
     private void createBook(ActionEvent actionEvent){
         try{
@@ -92,7 +76,7 @@ public class CreateBookPaneController {
             int pages = Integer.parseInt(yearTextField.getText());
             String language = languageTextField.getText();
 
-            if (checkData(title,author,year,pages,language)){
+            if (dataChecker.checkBookData(title,author,year,pages,language)){
                 library.addPublication(new Book(title, author, year ,pages, language));
             }
             else {

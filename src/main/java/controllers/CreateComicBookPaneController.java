@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import logic.DataChecker;
 import logic.SceneChanger;
 import main.LibraryApk;
 import model.Book;
@@ -56,6 +57,7 @@ public class CreateComicBookPaneController {
     private SceneChanger sceneChanger = new SceneChanger();
 
     private Library library = Library.getInstance();
+    private DataChecker dataChecker = new DataChecker();
 
     public void initialize(){
 
@@ -65,24 +67,6 @@ public class CreateComicBookPaneController {
 
     }
 
-    private boolean checkData(String title, String author, int year, String publishingHouse, int howManyStories){
-        if (title.equals("")){
-            return false;
-        }
-        if (author.equals("")){
-            return false;
-        }
-        if (year < 0){
-            return false;
-        }
-        if (howManyStories < 0) {
-            return false;
-        }
-        if (publishingHouse.equals("")){
-            return false;
-        }
-        return true;
-    }
 
     private void createComicBook(ActionEvent actionEvent){
         try{
@@ -92,7 +76,7 @@ public class CreateComicBookPaneController {
             String publishingHouse = publishingHouseTextField.getText();
             int howManyStories = Integer.parseInt(howManyStoriesTextField.getText());
 
-            if (checkData(title,author,year,publishingHouse,howManyStories)){
+            if (dataChecker.checkComicBookData(title,author,year,publishingHouse,howManyStories)){
                 library.addPublication(new ComicBook(title, author, year ,publishingHouse, howManyStories));
             }
             else {

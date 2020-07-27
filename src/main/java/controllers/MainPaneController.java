@@ -6,6 +6,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import logic.SceneChanger;
 
 public class MainPaneController {
 
@@ -62,5 +63,12 @@ public class MainPaneController {
 
     @FXML
     private TableColumn<?, ?> borrowedTableColumn;
+
+    private SceneChanger sceneChanger = new SceneChanger();
+
+    public void initialize(){
+        
+    }
+
 
 }

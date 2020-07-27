@@ -8,7 +8,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import logic.SceneChanger;
 import main.LibraryApk;
+import model.Book;
+import model.ComicBook;
 import model.Library;
+import model.Publication;
+
+import java.time.Year;
 
 public class MainPaneController {
 
@@ -43,31 +48,31 @@ public class MainPaneController {
     private CheckBox showMyBorrowedCheckBox;
 
     @FXML
-    private TableView<?> mainTableView;
+    private TableView<Publication> mainTableView;
 
     @FXML
-    private TableColumn<?, ?> titleTableColumn;
+    private TableColumn<Publication, String> titleTableColumn;
 
     @FXML
-    private TableColumn<?, ?> authorTableColumn;
+    private TableColumn<Publication, String> authorTableColumn;
 
     @FXML
-    private TableColumn<?, ?> yearTableColumn;
+    private TableColumn<Publication, Year> yearTableColumn;
 
     @FXML
-    private TableColumn<?, ?> pagesTableColumn;
+    private TableColumn<Book, Integer> pagesTableColumn;
 
     @FXML
-    private TableColumn<?, ?> languageTableColumn;
+    private TableColumn<Book, String> languageTableColumn;
 
     @FXML
-    private TableColumn<?, ?> publishingHouseTableColumn;
+    private TableColumn<ComicBook, String> publishingHouseTableColumn;
 
     @FXML
-    private TableColumn<?, ?> howManyStoriesTableColumn;
+    private TableColumn<ComicBook, Integer> howManyStoriesTableColumn;
 
     @FXML
-    private TableColumn<?, ?> borrowedTableColumn;
+    private TableColumn<Publication, Boolean> borrowedTableColumn;
 
     private SceneChanger sceneChanger = new SceneChanger();
 

@@ -11,15 +11,6 @@ public class TableFiller {
     private Library library = Library.getInstance();
     private LoginPaneController loginPaneController = new LoginPaneController();
 
-    public List<Publication> getPositionByCheckBox(boolean showBooks, boolean showComicBooks, boolean showNotBorrowed, boolean showMyBorrowed){
-        if (showMyBorrowed){
-        return getOnlyBorrowed(loginPaneController.getUser())
-        } else if (showNotBorrowed){
-            return getOnlyNotBorrowed();
-        }
-    }
-    }
-
     private List<Publication> getOnlyBorrowed(User user) {
         return user.getBorrowedPublication();
     }

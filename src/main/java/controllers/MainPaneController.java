@@ -18,37 +18,38 @@ import model.Publication;
 import java.time.Year;
 
 public class MainPaneController {
+        @FXML
+        private TextField publicationTitleTextField;
 
-    @FXML
-    private TextField publicationTitleTextField;
+        @FXML
+        private Button addBookButton;
 
-    @FXML
-    private Button addBookButton;
+        @FXML
+        private Button addComicBookButton;
 
-    @FXML
-    private Button addComicBookButton;
+        @FXML
+        private Button deletePublicationButton;
 
-    @FXML
-    private Button deletePublicationButton;
+        @FXML
+        private Button borrowPublicationButton;
 
-    @FXML
-    private Button borrowPublicationButton;
+        @FXML
+        private Button returnPublicationButton;
 
-    @FXML
-    private Button returnPublicationButton;
+        @FXML
+        private Button showOnlyBooksButton;
 
-    @FXML
-    private CheckBox showBooksCheckBox;
+        @FXML
+        private Button showOnlyComicBooksButton;
 
-    @FXML
-    private CheckBox showComicBookCheckBoox;
+        @FXML
+        private Button ShowOnlyNotBorrowedButton;
 
-    @FXML
-    private CheckBox showNotBorrowedCheckBox;
+        @FXML
+        private Button showUserBorrowedButton;
 
-    @FXML
-    private CheckBox showMyBorrowedCheckBox;
-
+        @FXML
+        private Button showUserHistoryButton;
     @FXML
     private TableView<Publication> mainTableView;
 

@@ -28,7 +28,7 @@
             <Button fx:id="showOnlyComicBooksButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="157.0" text="show only comic books" />
             <Button fx:id="ShowOnlyNotBorrowedButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="157.0" text="show only not borrowed" />
             <Button fx:id="showUserBorrowedButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="157.0" text="show my borrowed" />
-            <Button fx:id="showUserHistoryButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="152.0" text="show my history" />
+            <Button fx:id="showUserReturnedHistoryButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="152.0" text="show my returned history" />
          </children>
       </VBox>
    </right>

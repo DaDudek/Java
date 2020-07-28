@@ -11,11 +11,13 @@ public class TableFiller {
     private Library library = Library.getInstance();
     private LoginPaneController loginPaneController = new LoginPaneController();
 
-    private List<Publication> getOnlyBorrowed(User user) {
+    public List<Publication> getUserReturned(User user) {return user.getReturnedPublications();}
+
+    public List<Publication> getUserBorrowed(User user) {
         return user.getBorrowedPublication();
     }
 
-    private List<Publication> getOnlyNotBorrowed(){
+    public List<Publication> getOnlyNotBorrowed(){
         List<Publication> notBorrowedList = new ArrayList<>();
         List<Publication> publicationList = library.getPublicationsList();
         for (int i = 0; i < publicationList.size(); i++) {
@@ -26,7 +28,7 @@ public class TableFiller {
         return notBorrowedList;
     }
 
-    private List<Publication> getAllComicBooks(){
+    public List<Publication> getOnlyComicBooks(){
         List<Publication> comicBookList = new ArrayList<>();
         List<Publication> publicationList = library.getPublicationsList();
         for (int i = 0; i < publicationList.size(); i++) {
@@ -37,7 +39,7 @@ public class TableFiller {
         return comicBookList;
     }
 
-    private List<Publication> getAllBooks(){
+    public List<Publication> getOnlyBooks(){
         List<Publication> bookList = new ArrayList<>();
         List<Publication> publicationList = library.getPublicationsList();
         for (int i = 0; i < publicationList.size(); i++) {

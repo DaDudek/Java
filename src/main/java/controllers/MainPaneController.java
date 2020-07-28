@@ -49,7 +49,7 @@ public class MainPaneController {
         private Button showUserBorrowedButton;
 
         @FXML
-        private Button showUserHistoryButton;
+        private Button showUserReturnedHistoryButton;
     @FXML
     private TableView<Publication> mainTableView;
 
@@ -101,8 +101,7 @@ public class MainPaneController {
 
     private void fillTable() {
         ObservableList<Publication> items = mainTableView.getItems();
-        items.addAll(library.getPublicationsList());
-    }
+        items.addAll(library.getPublicationsList()); }
 
     public TableView<Publication> getMainTableView() {
         return mainTableView;

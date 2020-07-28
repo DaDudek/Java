@@ -59,7 +59,7 @@ public class CreateBookPaneController {
     private DataChecker dataChecker = new DataChecker();
     private MainPaneController mainPaneController = new MainPaneController();
 
-
+    private final String errorMessage = "data is nor correct";
 
 
     public void initialize(){
@@ -85,12 +85,11 @@ public class CreateBookPaneController {
                 sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
             }
             else {
-                throw new WrongDataException("wrong data");
+                throw new WrongDataException(errorMessage);
             }
 
         } catch (Exception exception){
-            System.out.println(exception.getClass());
-            sceneChanger.openNewWindow(LibraryApk.errorPanePath);
+            sceneChanger.openAndSetErrorWindow(errorMessage);
         }}
 
 

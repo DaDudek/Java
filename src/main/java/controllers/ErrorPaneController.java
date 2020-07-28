@@ -21,4 +21,8 @@ public class ErrorPaneController {
         });
     }
 
+    public Label getErrorMessageLabel() {
+        return errorMessageLabel;
+    }
+
 }

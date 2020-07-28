@@ -59,6 +59,9 @@ public class CreateComicBookPaneController {
     private Library library = Library.getInstance();
     private DataChecker dataChecker = new DataChecker();
 
+    private final String errorMessage = "data is nor correct";
+
+
     public void initialize(){
 
         addComicBookButton.setOnAction(this::createComicBook);
@@ -81,11 +84,11 @@ public class CreateComicBookPaneController {
                 sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
             }
             else {
-                throw new WrongDataException("wrong data");
+                throw new WrongDataException(errorMessage);
             }
 
         } catch (Exception exception){
-            sceneChanger.openNewWindow(LibraryApk.errorPanePath);
+            sceneChanger.openAndSetErrorWindow(errorMessage);
         }}
 
 }

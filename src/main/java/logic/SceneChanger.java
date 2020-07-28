@@ -1,8 +1,10 @@
 package logic;
 
+import controllers.ErrorPaneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.LibraryApk;
@@ -30,6 +32,24 @@ public class SceneChanger {
             window.setScene(newScene);
             window.setTitle("Error");
             window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openAndSetErrorWindow(String errorMessage){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(LibraryApk.errorPanePath));
+        try {
+            Parent tmp = loader.load();
+            Scene errorScene = new Scene(tmp);
+            Stage errorWindow = new Stage();
+            errorWindow.setScene(errorScene);
+            errorWindow.setTitle("error");
+
+            ErrorPaneController controller = loader.getController();
+            controller.getErrorMessageLabel().setText(errorMessage);
+            errorWindow.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

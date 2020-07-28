@@ -11,6 +11,8 @@ public class TableFiller {
     private Library library = Library.getInstance();
     private LoginPaneController loginPaneController = new LoginPaneController();
 
+    public List<Publication> getAllPublication(){return library.getPublicationsList();}
+
     public List<Publication> getUserReturned(User user) {return user.getReturnedPublications();}
 
     public List<Publication> getUserBorrowed(User user) {

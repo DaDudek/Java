@@ -13,6 +13,7 @@ public class Library implements Serializable {
     private static Library single_instance = null;
     private List<Publication> publicationsList = new ArrayList<>();
     private Map<String, User> usersMap = new HashMap<>();
+    private User actualUser;
 
 
     private Library() {
@@ -56,7 +57,7 @@ public class Library implements Serializable {
         return usersMap;
     }
 
-    public User getUser(String userName){
+    public User findUser(String userName){
         return usersMap.get(userName);
     }
 
@@ -73,6 +74,14 @@ public class Library implements Serializable {
     public Publication borrowPublication(String userName, Publication publication){
         usersMap.get(userName).borrowPublication(publication);
         return publication;
+    }
+
+    public User getActualUser() {
+        return actualUser;
+    }
+
+    public void setActualUser(User actualUser) {
+        this.actualUser = actualUser;
     }
 
 

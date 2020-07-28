@@ -3,17 +3,14 @@ package controllers;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import logic.SceneChanger;
+import logic.TableFiller;
 import main.LibraryApk;
-import model.Book;
-import model.ComicBook;
-import model.Library;
-import model.Publication;
+import model.*;
 
 import java.time.Year;
 
@@ -37,7 +34,7 @@ public class MainPaneController {
         private Button returnPublicationButton;
 
         @FXML
-        private Button ShowAllPublicationButton;
+        private Button showAllPublicationButton;
 
         @FXML
         private Button showOnlyBooksButton;
@@ -46,7 +43,7 @@ public class MainPaneController {
         private Button showOnlyComicBooksButton;
 
         @FXML
-        private Button ShowOnlyNotBorrowedButton;
+        private Button showOnlyNotBorrowedButton;
 
         @FXML
         private Button showUserBorrowedButton;
@@ -82,16 +79,24 @@ public class MainPaneController {
 
     private SceneChanger sceneChanger = new SceneChanger();
     private Library library = Library.getInstance();
+    private TableFiller tableFiller = new TableFiller();
 
     public void initialize(){
         configureTableColumns();
-        fillTable();
+        showAllPublication();
         addBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createBookPane));
         addComicBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createComicBookPane));
+        showAllPublicationButton.setOnAction(actionEvent -> showAllPublication());
+        showOnlyBooksButton.setOnAction(actionEvent -> showOnlyBooks());
+        showOnlyComicBooksButton.setOnAction(actionEvent -> showOnlyComicBooks());
+        showOnlyNotBorrowedButton.setOnAction(actionEvent -> showOnlyNotBorrowed());
+        showUserBorrowedButton.setOnAction(actionEvent -> showUserBorrowed(library.getActualUser()));
+        showUserReturnedHistoryButton.setOnAction(actionEvent -> showUserReturnedHistory(library.getActualUser()));
+
+
     }
 
     private void configureTableColumns() {
-
         titleTableColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         authorTableColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
         yearTableColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
@@ -102,11 +107,33 @@ public class MainPaneController {
         borrowedTableColumn.setCellValueFactory(new PropertyValueFactory<>("borrowed"));
     }
 
-    private void fillTable() {
-        ObservableList<Publication> items = mainTableView.getItems();
-        items.addAll(library.getPublicationsList()); }
+    private void showOnlyBooks(){
+        mainTableView.getItems().clear();
+        mainTableView.getItems().addAll(tableFiller.getOnlyBooks());
+    }
 
-    public TableView<Publication> getMainTableView() {
-        return mainTableView;
+    private void showAllPublication(){
+        mainTableView.getItems().clear();
+        mainTableView.getItems().addAll(tableFiller.getAllPublication());
+    }
+
+    private void showOnlyComicBooks(){
+        mainTableView.getItems().clear();
+        mainTableView.getItems().addAll(tableFiller.getOnlyComicBooks());
+    }
+
+    private void showOnlyNotBorrowed(){
+        mainTableView.getItems().clear();
+        mainTableView.getItems().addAll(tableFiller.getOnlyNotBorrowed());
+    }
+
+    private void showUserReturnedHistory(User user){
+        mainTableView.getItems().clear();
+        mainTableView.getItems().addAll(tableFiller.getUserReturned(user));
+    }
+
+    private void showUserBorrowed(User user){
+        mainTableView.getItems().clear();
+        mainTableView.getItems().addAll(tableFiller.getUserBorrowed(user));
     }
 }

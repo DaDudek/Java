@@ -20,15 +20,12 @@ public class LoginPaneController {
     private User user ;
     private SceneChanger sceneChanger = new SceneChanger();
 
-    public User getUser() {
-        return user;
-    }
-
     public void initialize() {
         startApkButton.setOnAction(actionEvent -> {
                     library.addUser(enterUserNameTextField.getText());
-                    user = library.getUser(enterUserNameTextField.getText());
+                    user = library.findUser(enterUserNameTextField.getText());
                     sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
+                    library.setActualUser(user);
                 }
         );
     }

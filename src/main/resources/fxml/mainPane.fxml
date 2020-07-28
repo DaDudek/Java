@@ -19,16 +19,17 @@
    <right>
       <VBox prefHeight="541.0" prefWidth="152.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addBookButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="177.0" text="add book" />
-            <Button fx:id="addComicBookButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="170.0" text="add comic book" />
-            <Button fx:id="deletePublicationButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="155.0" text="delete a publication" />
-            <Button fx:id="borrowPublicationButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="165.0" text="borrow a publication" />
-            <Button fx:id="returnPublicationButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="157.0" text="return a publication" />
-            <Button fx:id="showOnlyBooksButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="157.0" text="show only books" />
-            <Button fx:id="showOnlyComicBooksButton" mnemonicParsing="false" prefHeight="53.0" prefWidth="157.0" text="show only comic books" />
-            <Button fx:id="ShowOnlyNotBorrowedButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="157.0" text="show only not borrowed" />
-            <Button fx:id="showUserBorrowedButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="157.0" text="show my borrowed" />
-            <Button fx:id="showUserReturnedHistoryButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="152.0" text="show my returned history" />
+            <Button fx:id="addBookButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="add book" />
+            <Button fx:id="addComicBookButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="add comic book" />
+            <Button fx:id="deletePublicationButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="delete a publication" />
+            <Button fx:id="borrowPublicationButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="borrow a publication" />
+            <Button fx:id="returnPublicationButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="return a publication" />
+            <Button fx:id="ShowAllPublicationButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="show my returned history" />
+            <Button fx:id="showOnlyBooksButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="show only books" />
+            <Button fx:id="showOnlyComicBooksButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="show only comic books" />
+            <Button fx:id="ShowOnlyNotBorrowedButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="show only not borrowed" />
+            <Button fx:id="showUserBorrowedButton" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="show my borrowed" />
+            <Button fx:id="showUserReturnedHistoryButton" mnemonicParsing="false" prefHeight="51.0" prefWidth="152.0" text="show my returned history" />
          </children>
       </VBox>
    </right>

@@ -37,6 +37,9 @@ public class MainPaneController {
         private Button returnPublicationButton;
 
         @FXML
+        private Button ShowAllPublicationButton;
+
+        @FXML
         private Button showOnlyBooksButton;
 
         @FXML

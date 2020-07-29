@@ -1,5 +1,6 @@
 package model;
 
+import exceptions.PublicationBorrowedException;
 import exceptions.PublicationNotFoundException;
 
 import java.io.*;
@@ -47,6 +48,12 @@ public class Library implements Serializable {
     public void removePublication(Publication publication){
         if (publication == null){
             throw new NullPointerException("can't remove null position");
+        }
+        if (publication.isBorrowed()){
+            throw new PublicationBorrowedException("can't remove borrowed publication");
+        }
+        if (!publicationsList.contains(publication)){
+            throw new PublicationNotFoundException("publication is available in library");
         }
         publicationsList.remove(publication);
     }

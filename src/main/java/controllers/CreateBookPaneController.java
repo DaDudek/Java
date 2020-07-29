@@ -59,7 +59,7 @@ public class CreateBookPaneController {
     private DataChecker dataChecker = new DataChecker();
     private MainPaneController mainPaneController = new MainPaneController();
 
-    private final String errorMessage = "data is nor correct";
+    private final String errorMessage = "data is not correct";
 
 
     public void initialize(){

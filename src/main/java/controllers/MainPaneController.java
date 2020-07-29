@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.PublicationBorrowedException;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -87,12 +88,14 @@ public class MainPaneController {
         showAllPublication();
         addBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createBookPane));
         addComicBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createComicBookPane));
+        deletePublicationButton.setOnAction(actionEvent -> removePublication());
         showAllPublicationButton.setOnAction(actionEvent -> showAllPublication());
         showOnlyBooksButton.setOnAction(actionEvent -> showOnlyBooks());
         showOnlyComicBooksButton.setOnAction(actionEvent -> showOnlyComicBooks());
         showOnlyNotBorrowedButton.setOnAction(actionEvent -> showOnlyNotBorrowed());
         showUserBorrowedButton.setOnAction(actionEvent -> showUserBorrowed(library.getActualUser()));
         showUserReturnedHistoryButton.setOnAction(actionEvent -> showUserReturnedHistory(library.getActualUser()));
+
 
 
     }
@@ -142,5 +145,20 @@ public class MainPaneController {
     private void lookByTitle(String text){
         mainTableView.getItems().clear();
         mainTableView.getItems().addAll(tableFiller.getByContainsTitle(text));
+    }
+
+    private Publication getPublicationByClick(){
+        return mainTableView.getSelectionModel().getSelectedItem();
+    }
+
+    private void removePublication(){
+        Publication publication = getPublicationByClick();
+        try {
+            library.removePublication(publication);
+            showAllPublication();
+        }
+        catch (Exception exception){
+            sceneChanger.openAndSetErrorWindow(exception.getMessage());
+        }
     }
 }

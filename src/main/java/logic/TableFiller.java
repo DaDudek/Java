@@ -19,6 +19,17 @@ public class TableFiller {
         return user.getBorrowedPublication();
     }
 
+    public List<Publication> getByContainsTitle(String title){
+        List<Publication> listByKey = new ArrayList<>();
+        List<Publication> publicationList = library.getPublicationsList();
+        for (int i = 0; i < publicationList.size(); i++) {
+            if (publicationList.get(i).getTitle().toLowerCase().contains(title.toLowerCase())){
+                listByKey.add(publicationList.get(i));
+            }
+        }
+        return listByKey;
+    }
+
     public List<Publication> getOnlyNotBorrowed(){
         List<Publication> notBorrowedList = new ArrayList<>();
         List<Publication> publicationList = library.getPublicationsList();

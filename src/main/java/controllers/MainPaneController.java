@@ -7,6 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import logic.SceneChanger;
 import logic.TableFiller;
 import main.LibraryApk;
@@ -105,6 +106,7 @@ public class MainPaneController {
         publishingHouseTableColumn.setCellValueFactory(new PropertyValueFactory<>("publishingHouse"));
         howManyStoriesTableColumn.setCellValueFactory(new PropertyValueFactory<>("howManyStories"));
         borrowedTableColumn.setCellValueFactory(new PropertyValueFactory<>("borrowed"));
+        publicationTitleTextField.addEventFilter(KeyEvent.KEY_RELEASED, event -> lookByTitle(publicationTitleTextField.getText()));
     }
 
     private void showOnlyBooks(){
@@ -135,5 +137,10 @@ public class MainPaneController {
     private void showUserBorrowed(User user){
         mainTableView.getItems().clear();
         mainTableView.getItems().addAll(tableFiller.getUserBorrowed(user));
+    }
+
+    private void lookByTitle(String text){
+        mainTableView.getItems().clear();
+        mainTableView.getItems().addAll(tableFiller.getByContainsTitle(text));
     }
 }

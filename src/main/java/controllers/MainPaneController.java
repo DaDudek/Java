@@ -1,7 +1,6 @@
 package controllers;
 
-import exceptions.PublicationBorrowedException;
-import javafx.collections.ObservableList;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -9,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import logic.PublicationLogic;
 import logic.SceneChanger;
 import logic.TableFiller;
 import main.LibraryApk;
@@ -82,6 +82,7 @@ public class MainPaneController {
     private SceneChanger sceneChanger = new SceneChanger();
     private Library library = Library.getInstance();
     private TableFiller tableFiller = new TableFiller();
+    private PublicationLogic publicationLogic = new PublicationLogic(library.getActualUser());
 
     public void initialize(){
         configureTableColumns();
@@ -89,6 +90,8 @@ public class MainPaneController {
         addBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createBookPane));
         addComicBookButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.createComicBookPane));
         deletePublicationButton.setOnAction(actionEvent -> removePublication());
+        borrowPublicationButton.setOnAction(actionEvent -> borrowPublication());
+        returnPublicationButton.setOnAction(actionEvent -> returnPublication());
         showAllPublicationButton.setOnAction(actionEvent -> showAllPublication());
         showOnlyBooksButton.setOnAction(actionEvent -> showOnlyBooks());
         showOnlyComicBooksButton.setOnAction(actionEvent -> showOnlyComicBooks());
@@ -110,6 +113,7 @@ public class MainPaneController {
         howManyStoriesTableColumn.setCellValueFactory(new PropertyValueFactory<>("howManyStories"));
         borrowedTableColumn.setCellValueFactory(new PropertyValueFactory<>("borrowed"));
         publicationTitleTextField.addEventFilter(KeyEvent.KEY_RELEASED, event -> lookByTitle(publicationTitleTextField.getText()));
+
     }
 
     private void showOnlyBooks(){
@@ -154,7 +158,29 @@ public class MainPaneController {
     private void removePublication(){
         Publication publication = getPublicationByClick();
         try {
-            library.removePublication(publication);
+            publicationLogic.removePublication(publication);
+            showAllPublication();
+        }
+        catch (Exception exception){
+            sceneChanger.openAndSetErrorWindow(exception.getMessage());
+        }
+    }
+
+    private void borrowPublication(){
+        Publication publication = getPublicationByClick();
+        try {
+            publicationLogic.borrowPublication(publication);
+            showAllPublication();
+        }
+        catch (Exception exception){
+            sceneChanger.openAndSetErrorWindow(exception.getMessage());
+        }
+    }
+
+    private void returnPublication(){
+        Publication publication = getPublicationByClick();
+        try {
+            publicationLogic.returnPublication(publication);
             showAllPublication();
         }
         catch (Exception exception){

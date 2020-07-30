@@ -18,16 +18,8 @@ public class Book extends Publication{
         return pages;
     }
 
-    public void setPages(int pages) {
-        this.pages = pages;
-    }
-
     public String getLanguage() {
         return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
     }
 
     @Override

@@ -18,17 +18,11 @@ public class ComicBook extends Publication {
         return publishingHouse;
     }
 
-    public void setPublishingHouse(String publishingHouse) {
-        this.publishingHouse = publishingHouse;
-    }
 
     public int getHowManyStories() {
         return howManyStories;
     }
 
-    public void setHowManyStories(int howManyStories) {
-        this.howManyStories = howManyStories;
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -4,10 +4,8 @@ import exceptions.PublicationBorrowedException;
 import exceptions.PublicationNotFoundException;
 import model.Library;
 import model.Publication;
-import model.User;
 
 public class PublicationLogic {
-    private Library library = Library.getInstance();
 
     public PublicationLogic() {
     }
@@ -16,7 +14,7 @@ public class PublicationLogic {
         if (publication == null) {
             throw new PublicationNotFoundException("can't add null position");
         } else {
-            library.getPublicationsList().add(publication);
+            Library.getInstance().getPublicationsList().add(publication);
         }
     }
 
@@ -27,10 +25,10 @@ public class PublicationLogic {
         if (publication.isBorrowed()){
             throw new PublicationBorrowedException("can't remove borrowed publication");
         }
-        if (!library.getPublicationsList().contains(publication)){
+        if (!Library.getInstance().getPublicationsList().contains(publication)){
             throw new PublicationNotFoundException("publication is available in library");
         }
-        library.getPublicationsList().remove(publication);
+        Library.getInstance().getPublicationsList().remove(publication);
     }
 
     public void borrowPublication(Publication publication){

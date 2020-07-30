@@ -8,10 +8,8 @@ import java.util.List;
 
 public class TableFiller {
 
-    private Library library = Library.getInstance();
-    private LoginPaneController loginPaneController = new LoginPaneController();
 
-    public List<Publication> getAllPublication(){return library.getPublicationsList();}
+    public List<Publication> getAllPublication(){return Library.getInstance().getPublicationsList();}
 
     public List<Publication> getUserReturned(User user) {return user.getReturnedPublications();}
 
@@ -21,7 +19,7 @@ public class TableFiller {
 
     public List<Publication> getByContainsTitle(String title){
         List<Publication> listByKey = new ArrayList<>();
-        List<Publication> publicationList = library.getPublicationsList();
+        List<Publication> publicationList = Library.getInstance().getPublicationsList();
         for (int i = 0; i < publicationList.size(); i++) {
             if (publicationList.get(i).getTitle().toLowerCase().contains(title.toLowerCase())){
                 listByKey.add(publicationList.get(i));
@@ -32,7 +30,7 @@ public class TableFiller {
 
     public List<Publication> getOnlyNotBorrowed(){
         List<Publication> notBorrowedList = new ArrayList<>();
-        List<Publication> publicationList = library.getPublicationsList();
+        List<Publication> publicationList = Library.getInstance().getPublicationsList();
         for (int i = 0; i < publicationList.size(); i++) {
             if (!publicationList.get(i).isBorrowed()){
                 notBorrowedList.add(publicationList.get(i));
@@ -43,7 +41,7 @@ public class TableFiller {
 
     public List<Publication> getOnlyComicBooks(){
         List<Publication> comicBookList = new ArrayList<>();
-        List<Publication> publicationList = library.getPublicationsList();
+        List<Publication> publicationList = Library.getInstance().getPublicationsList();
         for (int i = 0; i < publicationList.size(); i++) {
             if (publicationList.get(i) instanceof ComicBook){
                 comicBookList.add(publicationList.get(i));
@@ -54,7 +52,7 @@ public class TableFiller {
 
     public List<Publication> getOnlyBooks(){
         List<Publication> bookList = new ArrayList<>();
-        List<Publication> publicationList = library.getPublicationsList();
+        List<Publication> publicationList = Library.getInstance().getPublicationsList();
         for (int i = 0; i < publicationList.size(); i++) {
             if (publicationList.get(i) instanceof Book){
                 bookList.add(publicationList.get(i));

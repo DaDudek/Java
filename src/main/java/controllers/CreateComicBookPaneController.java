@@ -10,12 +10,8 @@ import logic.DataChecker;
 import logic.PublicationLogic;
 import logic.SceneChanger;
 import main.LibraryApk;
-import model.Book;
 import model.ComicBook;
-import model.Library;
-import model.Publication;
 
-import java.util.InputMismatchException;
 
 public class CreateComicBookPaneController {
 
@@ -55,12 +51,9 @@ public class CreateComicBookPaneController {
     @FXML
     private Button addComicBookButton;
 
-    private SceneChanger sceneChanger = new SceneChanger();
-    private Library library = Library.getInstance();
-    private DataChecker dataChecker = new DataChecker();
-    private PublicationLogic publicationLogic = new PublicationLogic();
-
-    private final String errorMessage = "data is not correct";
+    private final SceneChanger sceneChanger = new SceneChanger();
+    private final DataChecker dataChecker = new DataChecker();
+    private final PublicationLogic publicationLogic = new PublicationLogic();
 
 
     public void initialize(){
@@ -73,6 +66,7 @@ public class CreateComicBookPaneController {
 
 
     private void createComicBook(ActionEvent actionEvent){
+        String errorMessage = "data is not correct";
         try{
             String title = titleTextField.getText();
             String author = authorTextField.getText();

@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 public class LibrarySerializable {
-    private SceneChanger sceneChanger = new SceneChanger();
 
     public void saveLibrary(){
         savePublication();

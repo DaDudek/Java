@@ -79,10 +79,9 @@ public class MainPaneController {
     @FXML
     private TableColumn<Publication, Boolean> borrowedTableColumn;
 
-    private SceneChanger sceneChanger = new SceneChanger();
-    private Library library = Library.getInstance();
-    private TableFiller tableFiller = new TableFiller();
-    private PublicationLogic publicationLogic = new PublicationLogic();
+    private final SceneChanger sceneChanger = new SceneChanger();
+    private final TableFiller tableFiller = new TableFiller();
+    private final PublicationLogic publicationLogic = new PublicationLogic();
 
     public void initialize(){
         configureTableColumns();
@@ -96,8 +95,8 @@ public class MainPaneController {
         showOnlyBooksButton.setOnAction(actionEvent -> showOnlyBooks());
         showOnlyComicBooksButton.setOnAction(actionEvent -> showOnlyComicBooks());
         showOnlyNotBorrowedButton.setOnAction(actionEvent -> showOnlyNotBorrowed());
-        showUserBorrowedButton.setOnAction(actionEvent -> showUserBorrowed(library.getActualUser()));
-        showUserReturnedHistoryButton.setOnAction(actionEvent -> showUserReturnedHistory(library.getActualUser()));
+        showUserBorrowedButton.setOnAction(actionEvent -> showUserBorrowed(Library.getInstance().getActualUser()));
+        showUserReturnedHistoryButton.setOnAction(actionEvent -> showUserReturnedHistory(Library.getInstance().getActualUser()));
 
 
 

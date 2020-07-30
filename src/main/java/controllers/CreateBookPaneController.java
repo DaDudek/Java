@@ -1,7 +1,6 @@
 package controllers;
 
 import exceptions.WrongDataException;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,10 +11,7 @@ import logic.PublicationLogic;
 import logic.SceneChanger;
 import main.LibraryApk;
 import model.Book;
-import model.Library;
 import model.Publication;
-
-import java.util.InputMismatchException;
 
 public class CreateBookPaneController {
 
@@ -55,12 +51,9 @@ public class CreateBookPaneController {
     @FXML
     private Button addBookButton;
 
-    private Library library = Library.getInstance();
-    private SceneChanger sceneChanger = new SceneChanger();
-    private DataChecker dataChecker = new DataChecker();
-    private PublicationLogic publicationLogic = new PublicationLogic();
-
-    private final String errorMessage = "data is not correct";
+    private final SceneChanger sceneChanger = new SceneChanger();
+    private final DataChecker dataChecker = new DataChecker();
+    private final PublicationLogic publicationLogic = new PublicationLogic();
 
 
     public void initialize(){
@@ -70,6 +63,7 @@ public class CreateBookPaneController {
     }
 
     private void createBook(ActionEvent actionEvent){
+        String errorMessage = "data is not correct";
         try{
             String title = titleTextField.getText();
             String author = authorTextField.getText();

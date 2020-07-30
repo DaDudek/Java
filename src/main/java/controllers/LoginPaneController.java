@@ -17,17 +17,16 @@ public class LoginPaneController {
     @FXML
     private Button startApkButton;
 
-    private Library  library = Library.getInstance();
     private User user ;
-    private SceneChanger sceneChanger = new SceneChanger();
-    private UserLogic userLogic = new UserLogic();
+    private final SceneChanger sceneChanger = new SceneChanger();
+    private final UserLogic userLogic = new UserLogic();
 
     public void initialize() {
         startApkButton.setOnAction(actionEvent -> {
                     userLogic.addUser(enterUserNameTextField.getText());
                     user = userLogic.findUser(enterUserNameTextField.getText());
                     sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
-                    library.setActualUser(user);
+                    Library.getInstance().setActualUser(user);
                 }
         );
     }

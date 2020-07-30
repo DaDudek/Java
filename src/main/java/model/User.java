@@ -13,10 +13,6 @@ public class User implements Serializable {
     private List<Publication> borrowedPublication = new ArrayList<>();
     private List<Publication> returnedPublications = new ArrayList<>();
 
-    public String getUserName() {
-        return userName;
-    }
-
     public List<Publication> getBorrowedPublication() {
         return borrowedPublication;
     }

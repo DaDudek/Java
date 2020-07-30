@@ -4,29 +4,23 @@ import model.Library;
 import model.User;
 
 public class UserLogic {
-    private Library library = Library.getInstance();
-    private User user;
 
 
     public UserLogic() {
     }
 
-    public UserLogic(User user) {
-        this.user = user;
-    }
-
     public User findUser(String userName){
-        return library.getUsersMap().get(userName);
+        return Library.getInstance().getUsersMap().get(userName);
     }
 
     public void addUser(String userName) {
         if (!checkUser(userName)) {
-            library.getUsersMap().put(userName, new User(userName));
+            Library.getInstance().getUsersMap().put(userName, new User(userName));
         }
     }
 
     private boolean checkUser(String userName){
-        return library.getUsersMap().containsKey(userName);
+        return Library.getInstance().getUsersMap().containsKey(userName);
     }
 
 }

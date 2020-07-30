@@ -9,10 +9,7 @@ public class DataChecker {
         if (author.equals("")){
             return false;
         }
-        if (year < 0){
-            return false;
-        }
-        return true;
+        return year >= 0;
     }
 
     public boolean checkComicBookData(String title, String author, int year, String publishingHouse, int howManyStories){

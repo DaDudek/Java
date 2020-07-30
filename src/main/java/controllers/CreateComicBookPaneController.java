@@ -59,7 +59,7 @@ public class CreateComicBookPaneController {
     private Library library = Library.getInstance();
     private DataChecker dataChecker = new DataChecker();
 
-    private final String errorMessage = "data is nor correct";
+    private final String errorMessage = "data is not correct";
 
 
     public void initialize(){

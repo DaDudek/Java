@@ -82,7 +82,7 @@ public class MainPaneController {
     private SceneChanger sceneChanger = new SceneChanger();
     private Library library = Library.getInstance();
     private TableFiller tableFiller = new TableFiller();
-    private PublicationLogic publicationLogic = new PublicationLogic(library.getActualUser());
+    private PublicationLogic publicationLogic = new PublicationLogic();
 
     public void initialize(){
         configureTableColumns();

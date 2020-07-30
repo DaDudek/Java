@@ -25,18 +25,6 @@ public class SceneChanger {
         }
     }
 
-    public void openNewWindow(String fxmlPath){
-        try {
-            Scene newScene = new Scene(FXMLLoader.load(getClass().getResource(fxmlPath)));
-            Stage window = new Stage();
-            window.setScene(newScene);
-            window.setTitle("Error");
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void openAndSetErrorWindow(String errorMessage){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(LibraryApk.errorPanePath));

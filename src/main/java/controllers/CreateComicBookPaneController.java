@@ -58,7 +58,7 @@ public class CreateComicBookPaneController {
     private SceneChanger sceneChanger = new SceneChanger();
     private Library library = Library.getInstance();
     private DataChecker dataChecker = new DataChecker();
-    private PublicationLogic publicationLogic = new PublicationLogic(library.getActualUser());
+    private PublicationLogic publicationLogic = new PublicationLogic();
 
     private final String errorMessage = "data is not correct";
 

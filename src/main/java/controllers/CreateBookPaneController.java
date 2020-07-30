@@ -58,7 +58,7 @@ public class CreateBookPaneController {
     private Library library = Library.getInstance();
     private SceneChanger sceneChanger = new SceneChanger();
     private DataChecker dataChecker = new DataChecker();
-    private PublicationLogic publicationLogic = new PublicationLogic(library.getActualUser());
+    private PublicationLogic publicationLogic = new PublicationLogic();
 
     private final String errorMessage = "data is not correct";
 
@@ -74,7 +74,7 @@ public class CreateBookPaneController {
             String title = titleTextField.getText();
             String author = authorTextField.getText();
             int year = Integer.parseInt(yearTextField.getText());
-            int pages = Integer.parseInt(yearTextField.getText());
+            int pages = Integer.parseInt(pagesTextField.getText());
             String language = languageTextField.getText();
 
             if (dataChecker.checkBookData(title,author,year,pages,language)){

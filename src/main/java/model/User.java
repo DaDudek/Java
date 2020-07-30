@@ -3,11 +3,12 @@ package model;
 import exceptions.PublicationBorrowedException;
 import exceptions.PublicationNotFoundException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class User {
+public class User implements Serializable {
     private String userName;
     private List<Publication> borrowedPublication = new ArrayList<>();
     private List<Publication> returnedPublications = new ArrayList<>();

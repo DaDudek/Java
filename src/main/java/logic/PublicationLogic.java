@@ -8,13 +8,8 @@ import model.User;
 
 public class PublicationLogic {
     private Library library = Library.getInstance();
-    private User user;
 
     public PublicationLogic() {
-    }
-
-    public PublicationLogic(User user) {
-        this.user = user;
     }
 
     public void addPublication(Publication publication) {
@@ -46,7 +41,7 @@ public class PublicationLogic {
             throw new PublicationBorrowedException("this publication is already borrowed");
         }
         else {
-            user.getBorrowedPublication().add(publication);
+            Library.getInstance().getActualUser().getBorrowedPublication().add(publication);
             publication.setBorrowed(true);
         }
     }
@@ -55,12 +50,12 @@ public class PublicationLogic {
         if (publication == null){
             throw new PublicationNotFoundException("can't return null position");
         }
-        if (!user.getBorrowedPublication().contains(publication)){
-            throw new PublicationBorrowedException("You are not allowed to return publication that you have not borrowed");
+        if (!Library.getInstance().getActualUser().getBorrowedPublication().contains(publication)){
+            throw new PublicationBorrowedException("You can't return publication that you have not borrowed");
         }
         publication.setBorrowed(false);
-        user.getReturnedPublications().add(publication);
-        user.getBorrowedPublication().remove(publication);
+        Library.getInstance().getActualUser().getReturnedPublications().add(publication);
+        Library.getInstance().getActualUser().getBorrowedPublication().remove(publication);
 
     }
 }

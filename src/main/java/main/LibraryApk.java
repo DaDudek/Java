@@ -1,17 +1,13 @@
 package main;
 
+import InOut.LibrarySerializable;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import model.Book;
 import model.Library;
-import model.Publication;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class LibraryApk extends Application {
     public static final String apkName= "Library apk by Dawid";
@@ -24,8 +20,12 @@ public class LibraryApk extends Application {
 
 
 
+
     public static void main(String[] args) {
+        LibrarySerializable librarySerializable = new LibrarySerializable();
+        librarySerializable.loadLibrary();
         launch(args);
+        librarySerializable.saveLibrary();
     }
 
     @Override

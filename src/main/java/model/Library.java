@@ -31,57 +31,16 @@ public class Library implements Serializable {
         return single_instance;
     }
 
-    //publications part
 
     public void setPublicationMap(List<Publication> publicationList) {
         this.publicationsList = publicationList;
     }
 
-    public void addPublication(Publication publication) {
-        if (publication == null) {
-            throw new NullPointerException("can't add null position");
-        } else {
-            publicationsList.add(publication);
-        }
-    }
-
-    public void removePublication(Publication publication){
-        if (publication == null){
-            throw new NullPointerException("can't remove null position");
-        }
-        if (publication.isBorrowed()){
-            throw new PublicationBorrowedException("can't remove borrowed publication");
-        }
-        if (!publicationsList.contains(publication)){
-            throw new PublicationNotFoundException("publication is available in library");
-        }
-        publicationsList.remove(publication);
-    }
-
-    //users part
-
     public Map<String, User> getUsersMap() {
         return usersMap;
     }
 
-    public User findUser(String userName){
-        return usersMap.get(userName);
-    }
 
-    public void addUser(String userName) {
-        if (!checkUser(userName)) {
-            usersMap.put(userName, new User(userName));
-        }
-    }
-
-    private boolean checkUser(String userName){
-        return usersMap.containsKey(userName);
-    }
-
-    public Publication borrowPublication(String userName, Publication publication){
-        usersMap.get(userName).borrowPublication(publication);
-        return publication;
-    }
 
     public User getActualUser() {
         return actualUser;

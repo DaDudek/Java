@@ -30,24 +30,6 @@ public class User {
 
     public User(){}
 
-    public void borrowPublication(Publication publication){
-        if (publication.isBorrowed()){
-            throw new PublicationBorrowedException("this publication is already borrowed");
-        }
-        else {
-            borrowedPublication.add(publication);
-            publication.setBorrowed(true);
-        }
-    }
-
-    public void returnPublication(Publication publication){
-        if (borrowedPublication.contains(publication)){
-            publication.setBorrowed(false);
-            returnedPublications.add(publication);
-            borrowedPublication.remove(publication);
-        }
-        throw new PublicationNotFoundException("You are not allowed to return publication you have not borrowed");
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -7,6 +7,10 @@ public class UserLogic {
     private Library library = Library.getInstance();
     private User user;
 
+
+    public UserLogic() {
+    }
+
     public UserLogic(User user) {
         this.user = user;
     }

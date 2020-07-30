@@ -19,7 +19,7 @@ public class PublicationLogic {
 
     public void addPublication(Publication publication) {
         if (publication == null) {
-            throw new NullPointerException("can't add null position");
+            throw new PublicationNotFoundException("can't add null position");
         } else {
             library.getPublicationsList().add(publication);
         }
@@ -52,11 +52,15 @@ public class PublicationLogic {
     }
 
     public void returnPublication(Publication publication){
-        if (user.getBorrowedPublication().contains(publication)){
-            publication.setBorrowed(false);
-            user.getReturnedPublications().add(publication);
-            user.getBorrowedPublication().remove(publication);
+        if (publication == null){
+            throw new PublicationNotFoundException("can't return null position");
         }
-        throw new PublicationNotFoundException("You are not allowed to return publication that you have not borrowed");
+        if (!user.getBorrowedPublication().contains(publication)){
+            throw new PublicationBorrowedException("You are not allowed to return publication that you have not borrowed");
+        }
+        publication.setBorrowed(false);
+        user.getReturnedPublications().add(publication);
+        user.getBorrowedPublication().remove(publication);
+
     }
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import logic.DataChecker;
+import logic.PublicationLogic;
 import logic.SceneChanger;
 import main.LibraryApk;
 import model.Book;
@@ -55,9 +56,9 @@ public class CreateComicBookPaneController {
     private Button addComicBookButton;
 
     private SceneChanger sceneChanger = new SceneChanger();
-
     private Library library = Library.getInstance();
     private DataChecker dataChecker = new DataChecker();
+    private PublicationLogic publicationLogic = new PublicationLogic(library.getActualUser());
 
     private final String errorMessage = "data is not correct";
 
@@ -80,7 +81,7 @@ public class CreateComicBookPaneController {
             int howManyStories = Integer.parseInt(howManyStoriesTextField.getText());
 
             if (dataChecker.checkComicBookData(title,author,year,publishingHouse,howManyStories)){
-                library.addPublication(new ComicBook(title, author, year ,publishingHouse, howManyStories));
+                publicationLogic.addPublication(new ComicBook(title, author, year ,publishingHouse, howManyStories));
                 sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
             }
             else {

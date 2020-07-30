@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import logic.DataChecker;
+import logic.PublicationLogic;
 import logic.SceneChanger;
 import main.LibraryApk;
 import model.Book;
@@ -57,7 +58,7 @@ public class CreateBookPaneController {
     private Library library = Library.getInstance();
     private SceneChanger sceneChanger = new SceneChanger();
     private DataChecker dataChecker = new DataChecker();
-    private MainPaneController mainPaneController = new MainPaneController();
+    private PublicationLogic publicationLogic = new PublicationLogic(library.getActualUser());
 
     private final String errorMessage = "data is not correct";
 
@@ -66,10 +67,7 @@ public class CreateBookPaneController {
 
         addBookButton.setOnAction(this::createBook);
         goBackButton.setOnAction(actionEvent -> sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath));
-
-
     }
-
 
     private void createBook(ActionEvent actionEvent){
         try{
@@ -81,7 +79,7 @@ public class CreateBookPaneController {
 
             if (dataChecker.checkBookData(title,author,year,pages,language)){
                 Publication book = new Book(title, author, year ,pages, language);
-                library.addPublication(book);
+                publicationLogic.addPublication(book);
                 sceneChanger.switchScene(actionEvent, LibraryApk.mainPanePath);
             }
             else {
